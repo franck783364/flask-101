@@ -18,6 +18,6 @@ def read_many_products():
     return jsonify(products), 200
 
 @app.route('/api/v1/products/:<id>')
-def read_product():
-    product = str(PRODUCTS.values(id))
+def read_product(id):
+    product = str(PRODUCTS.values())
     return jsonify(product), 200
