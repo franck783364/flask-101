@@ -12,12 +12,17 @@ PRODUCTS = {
 def hello():
     return "Hello World!"
 
-@app.route('/api/v1/products/:<int:id>')
+@app.route('/api/v1/products')
 def read_many_products():
     products = list(PRODUCTS.values())
     return jsonify(products), 200
 
+@app.route('/api/v1/products/:<int:id>')
+def read_single_product(id):
+    product = PRODUCTS.get(id)
+    return jsonify(product), 200
+
 @app.route('/api/v1/products/:<int:id>', methods=['DELETE'])
-def read_many_products():
+def delete_single_product():
 #    products = list(PRODUCTS.values())
     return NULL, 204
