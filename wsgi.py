@@ -17,7 +17,7 @@ def read_many_products():
     products = list(PRODUCTS.values())
     return jsonify(products), 200
 
-@app.route('/api/v1/products/:<id>')
+@app.route('/api/v1/products/:<int:id>')
 def read_product(id):
-    product = str(PRODUCTS.values())
+    product = PRODUCTS.get(id)
     return jsonify(product), 200
