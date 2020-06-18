@@ -23,6 +23,6 @@ def read_single_product(id):
     return jsonify(product), 200
 
 @app.route('/api/v1/products/:<int:id>', methods=['DELETE'])
-def delete_single_product():
-#    products = list(PRODUCTS.values())
+def delete_single_product(id):
+    PRODUCTS = PRODUCTS.remove(id)
     return NULL, 204
